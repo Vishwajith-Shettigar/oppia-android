@@ -523,7 +523,7 @@ class ExplorationProgressController @Inject constructor(
     //  catching an exception.
     val flowResult: AsyncResult<T> = try {
       val commandQueue = mostRecentCommandQueue
-      Log.e("#","inside the seconcommand")
+      Log.e("#", "inside the seconcommand")
       when {
         commandQueue == null ->
           AsyncResult.Failure(IllegalStateException("Session isn't initialized yet."))
@@ -691,7 +691,7 @@ class ExplorationProgressController @Inject constructor(
         "Cannot submit an answer while another answer is pending."
       }
       try {
-        Log.e("#","above viewhiint caling"+"  "+hintIndex.toString())
+        Log.e("#", "above viewhiint caling" + "  " + hintIndex.toString())
 
         hintHandler.viewHint(hintIndex)
       } finally {

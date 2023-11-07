@@ -43,11 +43,9 @@ class HintHandlerDebugImpl private constructor() : HintHandler {
 
   override fun getCurrentHelpIndex(): StateFlow<HelpIndex> = helpIndexFlow
   override fun onAppInForeground() {
-
   }
 
   override fun onAppInBackground() {
-
   }
 
   private fun recomputeHelpIndex(pendingState: State) {

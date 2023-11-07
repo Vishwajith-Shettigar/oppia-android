@@ -57,7 +57,7 @@ class HintsAndSolutionViewModel private constructor(
 
   private fun createViewModels(): List<HintsAndSolutionItemViewModel> {
     return hintList.mapIndexed { index, hint ->
-Log.e("#",hint.hintContent.toString())
+      Log.e("#", hint.hintContent.toString())
       createHintViewModel(
         index, hint, isHintRevealed = ObservableBoolean(helpIndex.isHintRevealed(index, hintList))
       )

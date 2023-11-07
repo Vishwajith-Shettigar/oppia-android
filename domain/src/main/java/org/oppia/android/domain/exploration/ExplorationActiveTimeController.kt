@@ -98,7 +98,7 @@ class ExplorationActiveTimeController @Inject constructor(
   }
 
   override fun onAppInForeground() {
-    Log.e("#","hhhhhhhhhhhhhhhhhhhhhhhhhhhhhh")
+    Log.e("#", "hhhhhhhhhhhhhhhhhhhhhhhhhhhhhh")
     this.isAppInForeground = true
     resumeSessionTimer(getIsExplorationStarted())
   }

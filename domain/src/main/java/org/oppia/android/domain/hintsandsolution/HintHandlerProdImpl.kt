@@ -16,7 +16,6 @@ import org.oppia.android.app.model.HelpIndex.IndexTypeCase.SHOW_SOLUTION
 import org.oppia.android.app.model.State
 import org.oppia.android.util.threading.BackgroundDispatcher
 import javax.inject.Inject
-import org.oppia.android.domain.oppialogger.analytics.ApplicationLifecycleListener
 
 /**
  * Production implementation of [HintHandler] that implements hints & solutions in parity with the
@@ -60,7 +59,7 @@ class HintHandlerProdImpl private constructor(
   private val delayShowAdditionalHintsMs: Long,
   private val delayShowAdditionalHintsFromWrongAnswerMs: Long,
   private val backgroundCoroutineDispatcher: CoroutineDispatcher
-) : HintHandler{
+) : HintHandler {
   private val helpIndexFlow by lazy { MutableStateFlow(HelpIndex.getDefaultInstance()) }
 
   private var trackedWrongAnswerCount = 0
@@ -127,7 +126,7 @@ class HintHandlerProdImpl private constructor(
 
   override suspend fun viewHint(hintIndex: Int) {
 
-    Log.e("#","view hint func")
+    Log.e("#", "view hint func")
     val helpIndex = computeCurrentHelpIndex()
     check(
       helpIndex.indexTypeCase == NEXT_AVAILABLE_HINT_INDEX &&
@@ -178,7 +177,7 @@ class HintHandlerProdImpl private constructor(
       // If this state has no help to show, do nothing.
       return
     }
-    Log.e("#","schedule next hint")
+    Log.e("#", "schedule next hint")
 
     // Start showing hints after a wrong answer is submitted or if the user appears stuck (e.g.
     // doesn't answer after some duration). Note that if there's already a timer to show a hint,
@@ -359,14 +358,11 @@ class HintHandlerProdImpl private constructor(
   }
 
   override fun onAppInForeground() {
-    Log.e("#","app in foreground")
-
+    Log.e("#", "app in foreground")
   }
 
-
   override fun onAppInBackground() {
-    Log.e("#","app is background")
-
+    Log.e("#", "app is background")
   }
 }
 

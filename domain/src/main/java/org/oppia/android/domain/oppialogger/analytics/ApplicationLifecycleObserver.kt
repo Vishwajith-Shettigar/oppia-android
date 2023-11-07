@@ -94,7 +94,7 @@ class ApplicationLifecycleObserver @Inject constructor(
   /** Occurs when application comes to foreground. */
   @OnLifecycleEvent(Lifecycle.Event.ON_START)
   fun onAppInForeground() {
-    Log.e("#","lllloijfop")
+    Log.e("#", "lllloijfop")
     applicationLifecycleListeners.forEach(ApplicationLifecycleListener::onAppInForeground)
     val timeDifferenceMs = oppiaClock.getCurrentTimeMs() - firstTimestamp
     if (timeDifferenceMs > inactivityLimitMillis) {

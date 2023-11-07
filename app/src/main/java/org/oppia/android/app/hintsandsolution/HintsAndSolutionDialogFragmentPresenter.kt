@@ -176,7 +176,7 @@ class HintsAndSolutionDialogFragmentPresenter @Inject constructor(
       )
 
     binding.revealHintButton.setOnClickListener {
-      Log.e("#","hint reveal clicked")
+      Log.e("#", "hint reveal clicked")
       hintViewModel.isHintRevealed.set(true)
       expandedHintListIndexListener.onRevealHintClicked(position, isHintRevealed = true)
       (fragment.requireActivity() as? RevealHintListener)?.revealHint(hintIndex = position)
