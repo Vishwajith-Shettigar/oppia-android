@@ -1,6 +1,7 @@
 package org.oppia.android.app.player.state
 
 import android.content.Context
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -266,6 +267,7 @@ class StateFragmentPresenter @Inject constructor(
   }
 
   fun revealHint(hintIndex: Int) {
+    Log.e("#","yoyo")
     subscribeToHintSolution(explorationProgressController.submitHintIsRevealed(hintIndex))
   }
 
@@ -344,12 +346,15 @@ class StateFragmentPresenter @Inject constructor(
 
   /** Subscribes to the result of requesting to show a hint or solution. */
   private fun subscribeToHintSolution(resultDataProvider: DataProvider<Any?>) {
+    Log.e("#","dark")
     resultDataProvider.toLiveData().observe(
       fragment,
       { result ->
+        Log.e("#",result.toString())
         if (result is AsyncResult.Failure) {
           oppiaLogger.e("StateFragment", "Failed to retrieve hint/solution", result.error)
         } else {
+          
           // If the hint/solution, was revealed remove dot and radar.
           setHintOpenedAndUnRevealed(false)
         }

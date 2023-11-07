@@ -3,6 +3,7 @@ package org.oppia.android.domain.hintsandsolution
 import kotlinx.coroutines.flow.StateFlow
 import org.oppia.android.app.model.HelpIndex
 import org.oppia.android.app.model.State
+import org.oppia.android.domain.oppialogger.analytics.ApplicationLifecycleListener
 
 /**
  * Handler for showing hints to the learner after a period of time in the event they submit a
@@ -19,7 +20,7 @@ import org.oppia.android.app.model.State
  * Implementations of this class are not safe to access across multiple threads, and will block the
  * calling thread.
  */
-interface HintHandler {
+interface HintHandler : ApplicationLifecycleListener {
 
   /**
    * Starts watching for potential hints to be shown (e.g. if a user doesn't submit an answer after

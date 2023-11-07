@@ -1,5 +1,6 @@
 package org.oppia.android.app.hintsandsolution
 
+import android.util.Log
 import androidx.databinding.ObservableBoolean
 import org.oppia.android.R
 import org.oppia.android.app.model.HelpIndex
@@ -56,6 +57,7 @@ class HintsAndSolutionViewModel private constructor(
 
   private fun createViewModels(): List<HintsAndSolutionItemViewModel> {
     return hintList.mapIndexed { index, hint ->
+Log.e("#",hint.hintContent.toString())
       createHintViewModel(
         index, hint, isHintRevealed = ObservableBoolean(helpIndex.isHintRevealed(index, hintList))
       )

@@ -1,5 +1,6 @@
 package org.oppia.android.domain.exploration
 
+import android.util.Log
 import kotlinx.coroutines.CoroutineDispatcher
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Deferred
@@ -91,11 +92,13 @@ class ExplorationActiveTimeController @Inject constructor(
   }
 
   override fun onExplorationEnded() {
+
     this.explorationStarted = false
     stopSessionTimerAsync(getIsExplorationStarted())
   }
 
   override fun onAppInForeground() {
+    Log.e("#","hhhhhhhhhhhhhhhhhhhhhhhhhhhhhh")
     this.isAppInForeground = true
     resumeSessionTimer(getIsExplorationStarted())
   }

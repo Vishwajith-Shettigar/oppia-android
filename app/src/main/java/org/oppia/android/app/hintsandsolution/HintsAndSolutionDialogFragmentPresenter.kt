@@ -1,5 +1,6 @@
 package org.oppia.android.app.hintsandsolution
 
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -175,6 +176,7 @@ class HintsAndSolutionDialogFragmentPresenter @Inject constructor(
       )
 
     binding.revealHintButton.setOnClickListener {
+      Log.e("#","hint reveal clicked")
       hintViewModel.isHintRevealed.set(true)
       expandedHintListIndexListener.onRevealHintClicked(position, isHintRevealed = true)
       (fragment.requireActivity() as? RevealHintListener)?.revealHint(hintIndex = position)

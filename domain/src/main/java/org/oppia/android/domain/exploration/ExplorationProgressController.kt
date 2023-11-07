@@ -1,5 +1,6 @@
 package org.oppia.android.domain.exploration
 
+import android.util.Log
 import kotlinx.coroutines.CoroutineDispatcher
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.channels.Channel
@@ -522,6 +523,7 @@ class ExplorationProgressController @Inject constructor(
     //  catching an exception.
     val flowResult: AsyncResult<T> = try {
       val commandQueue = mostRecentCommandQueue
+      Log.e("#","inside the seconcommand")
       when {
         commandQueue == null ->
           AsyncResult.Failure(IllegalStateException("Session isn't initialized yet."))
@@ -689,6 +691,8 @@ class ExplorationProgressController @Inject constructor(
         "Cannot submit an answer while another answer is pending."
       }
       try {
+        Log.e("#","above viewhiint caling"+"  "+hintIndex.toString())
+
         hintHandler.viewHint(hintIndex)
       } finally {
         // Ensure that the user always returns to the VIEWING_STATE stage to avoid getting stuck
