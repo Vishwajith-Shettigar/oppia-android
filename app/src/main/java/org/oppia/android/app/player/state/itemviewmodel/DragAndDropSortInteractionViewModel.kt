@@ -115,7 +115,7 @@ class DragAndDropSortInteractionViewModel private constructor(
     _choiceItems[indexTo].itemIndex = indexTo
 
     (adapter as BindableAdapter<*>).setDataUnchecked(_choiceItems)
-    adapter.notifyDataSetChanged()
+
   }
 
   override fun getPendingAnswer(): UserAnswer = UserAnswer.newBuilder().apply {
@@ -164,6 +164,7 @@ class DragAndDropSortInteractionViewModel private constructor(
     }
     // to update the content of grouped item
     (adapter as BindableAdapter<*>).setDataUnchecked(_choiceItems)
+    adapter.notifyDataSetChanged()
   }
 
   fun unlinkElement(itemIndex: Int, adapter: RecyclerView.Adapter<RecyclerView.ViewHolder>) {
