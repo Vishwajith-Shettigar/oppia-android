@@ -1,5 +1,6 @@
 package org.oppia.android.app.player.state.itemviewmodel
 
+import android.util.Log
 import androidx.databinding.Observable
 import androidx.databinding.ObservableField
 import androidx.recyclerview.widget.RecyclerView
@@ -82,6 +83,7 @@ class DragAndDropSortInteractionViewModel private constructor(
     adapter: RecyclerView.Adapter<RecyclerView.ViewHolder>
   ) {
     val item = _choiceItems[indexFrom]
+    Log.e("#",item.toString())
     _choiceItems.removeAt(indexFrom)
     _choiceItems.add(indexTo, item)
 
@@ -113,6 +115,7 @@ class DragAndDropSortInteractionViewModel private constructor(
     _choiceItems[indexTo].itemIndex = indexTo
 
     (adapter as BindableAdapter<*>).setDataUnchecked(_choiceItems)
+    adapter.notifyDataSetChanged()
   }
 
   override fun getPendingAnswer(): UserAnswer = UserAnswer.newBuilder().apply {
