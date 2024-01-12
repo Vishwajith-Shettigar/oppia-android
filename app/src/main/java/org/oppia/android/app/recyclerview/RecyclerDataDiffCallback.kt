@@ -2,8 +2,7 @@ package org.oppia.android.app.recyclerview
 
 import androidx.recyclerview.widget.DiffUtil
 
-class RecyclerDataDiffCallback<T : Any>
-  (
+class RecyclerDataDiffCallback<T : Any>(
   var oldList: MutableList<T>,
   var newList: List<T>
 ) : DiffUtil.Callback() {
