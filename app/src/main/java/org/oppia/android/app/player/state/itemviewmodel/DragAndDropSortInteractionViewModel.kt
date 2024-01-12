@@ -115,7 +115,6 @@ class DragAndDropSortInteractionViewModel private constructor(
     _choiceItems[indexTo].itemIndex = indexTo
 
     (adapter as BindableAdapter<*>).setDataUnchecked(_choiceItems)
-
   }
 
   override fun getPendingAnswer(): UserAnswer = UserAnswer.newBuilder().apply {
